@@ -1,0 +1,73 @@
+<!-- storage.xml for T3_US_Colorado 
+
+    Storage element:  hepse01.colorado.edu
+    Storage software: bestman 2.2.1.2
+    Phedex host:      hepse02.colorado.edu
+
+    All CMS data are stored using the /store convention
+    Therefore we only need to map:
+           /+store/(.*)
+
+-->
+<storage-mapping>
+<!-- ############################################################################## -->
+<!-- ############################## LoadTest Rules ################################# -->
+
+  <lfn-to-pfn protocol="direct"
+    path-match=".*/LoadTest07_US_Colorado_(.*)_.*_.*" 
+    result="/mnt/hadoop/store/PhEDEx_LoadTest07/LoadTest07_Debug_US_Colorado/LoadTest07_US_Colorado_$1"/>
+  <lfn-to-pfn protocol="srmv2"
+    path-match=".*/LoadTest07_US_Colorado_(.*)_.*_.*" 
+    result="srm://hepse01.colorado.edu:8443/srm/v2/server?SFN=/mnt/hadoop/store/PhEDEx_LoadTest07/LoadTest07_Debug_US_Colorado/LoadTest07_US_Colorado_$1"/>
+
+<!-- ##################### Xrootd fallback rules ################################### -->
+
+  <lfn-to-pfn protocol="xrootd" destination-match=".*" path-match="/+store/(.*)"  result="root://siab-1.colorado.edu//store/$1"/>
+  <lfn-to-pfn protocol="xrootd-fallback1" destination-match=".*" path-match="/+store/(.*)"  result="root://cmsxrootd.fnal.gov//store/$1"/>
+
+<!-- ############################################################################## -->
+
+<!-- Translation rules for LFN to PFN (Logical File Name to Physical File Name 
+     Bestman does not support the srm v1 protocol so we fudge it with a file result
+-->
+
+  <lfn-to-pfn protocol="file"
+    path-match="/+store/test/xrootd/T3_US_Colorado/store/(.*)"                      result="file:/mnt/hadoop/store/$1"/>
+  <lfn-to-pfn protocol="file"
+    path-match="/+store/(.*)"                      result="file:/mnt/hadoop/store/$1"/>
+  <lfn-to-pfn protocol="file2"
+    path-match="/+store/(.*)"                      result="file:/mnt2/hadoop/store/$1"/>
+
+  <lfn-to-pfn protocol="direct"
+    path-match="/+store/test/xrootd/T3_US_Colorado/store/(.*)"                      result="/mnt/hadoop/store/$1"/>
+  <lfn-to-pfn protocol="direct"
+    path-match="/+store/(.*)"                      result="/mnt/hadoop/store/$1"/>
+
+  <lfn-to-pfn protocol="srm" 
+    path-match="/+store/(.*)"                      result="file:/mnt/hadoop/store/$1"/>
+  <lfn-to-pfn protocol="srmv2" 
+    path-match="/+store/(.*)"                      result="srm://hepse01.colorado.edu:8443/srm/v2/server?SFN=/mnt/hadoop/store/$1"/>
+  <lfn-to-pfn protocol="gsiftp" 
+    path-match="/+store/(.*)"                      result="gsiftp://hepse01.colorado.edu:8443/mnt/hadoop/store/$1"/>
+
+<!-- ############################################################################## -->
+<!-- Translation rules for PFN to LFN (Physical File Name to Logical File Name -->
+
+  <pfn-to-lfn protocol="file"
+    path-match="file:/mnt/hadoop/store/(.*)"    result="/store/$1"/>
+  <pfn-to-lfn protocol="direct" 
+    path-match="/mnt/hadoop/store/(.*)"         result="/store/$1"/>
+  <pfn-to-lfn protocol="srm" 
+    path-match="file:/mnt/hadoop/store/(.*)"    result="/store/$1"/>
+  <pfn-to-lfn protocol="srmv2" 
+    path-match=".*\?SFN=/mnt/hadoop/store/(.*)" result="/store/$1"/>
+  <pfn-to-lfn protocol="gsiftp" 
+    path-match=".*/mnt/hadoop/store/(.*)"       result="/store/$1"/>
+
+<!-- ############################################################################## -->
+<!-- Protocl definitions for HDFS over xrootd  -->
+
+  <lfn-to-pfn protocol="hadoop" path-match="/+store/test/xrootd/T3_US_Colorado/store/(.*)" result="/store/$1"/>
+  <lfn-to-pfn protocol="hadoop" path-match="/+store/(.*)"                                  result="/store/$1"/>
+
+</storage-mapping>

@@ -1,0 +1,52 @@
+<!--  site-local-config.xml
+
+     Site:        T3_US_Colorado
+     CE:          heposg01.colorado.edu
+     SE:          hepse01.colorado.edu
+     PhedEX host: hepse02.colorado.edu
+
+                  Last modified: drjohn 2008-12-22
+-->
+<site-local-config>
+ <site name="T3_US_Colorado">
+   <event-data>
+     <!--
+     <catalog url="trivialcatalog_file://cvmfs/cms.cern.ch/SITECONF/local/PhEDEx/storage.xml?protocol=file"/>
+     <catalog url="trivialcatalog_file://cvmfs/cms.cern.ch/SITECONF/local/PhEDEx/storage.xml?protocol=file2"/>
+    -->
+     <catalog url="trivialcatalog_file://cvmfs/cms.cern.ch/SITECONF/local/PhEDEx/storage.xml?protocol=xrootd"/>
+     <catalog url="trivialcatalog_file://cvmfs/cms.cern.ch/SITECONF/local/PhEDEx/storage.xml?protocol=xrootd-fallback1"/>
+   </event-data> 
+   <source-config>
+      <statistics-destination name="cms-udpmon-collector.cern.ch:9331" />
+   </source-config>
+   <local-stage-out>
+     <command value="gfal2"/>
+     <catalog url="trivialcatalog_file://cvmfs/cms.cern.ch/SITECONF/local/PhEDEx/storage.xml?protocol=srmv2"/>
+     <se-name value="hepse01.colorado.edu"/>
+     <phedex-node value="T3_US_Colorado"/>
+   </local-stage-out>
+   <fallback-stage-out>
+     <se-name value="cmssrm.fnal.gov"/>
+     <phedex-node value="T1_US_FNAL"/>
+     <lfn-prefix value="srm://cmssrm.fnal.gov:8443/srm/managerv2?SFN=/11"/>
+     <command value="gfal2"/>
+     <option value="-v"/>
+   </fallback-stage-out>
+    <calib-data>
+      <frontier-connect>
+        <load balance="proxies"/>
+        <proxy url="http://cmsprxy01.colorado.edu:3128"/>
+        <proxy url="http://cmsprxy02.colorado.edu:3128"/>
+        <proxy url="http://cmsprxy03.colorado.edu:3128"/>
+        <backupproxy url="http://cmsbproxy.fnal.gov:3128"/>
+        <backupproxy url="http://cmsbpfrontier.cern.ch:3128"/>	
+        <server url="http://cmsfrontier.cern.ch:8000/FrontierInt"/>
+        <server url="http://cmsfrontier1.cern.ch:8000/FrontierInt"/>
+        <server url="http://cmsfrontier2.cern.ch:8000/FrontierInt"/>
+        <server url="http://cmsfrontier3.cern.ch:8000/FrontierInt"/>
+      </frontier-connect>
+      <catalog url=""/>
+    </calib-data>
+ </site>
+ </site-local-config>

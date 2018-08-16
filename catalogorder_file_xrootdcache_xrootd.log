@@ -1,0 +1,31 @@
+$ ./run_analysis.sh 
+LibCvmfs version 2.4, revision 25
+16-Aug-2018 15:04:17 EDT  Initiating request to open file file:/mnt/hadoop/store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root
+16-Aug-2018 15:04:20 EDT  Fallback request to file root://siab-1.colorado.edu//store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root
+[2018-08-16 15:04:20.910618 -0400][Error  ][AsyncSock         ] [siab-1.colorado.edu:1094 #0.0] Unable to connect: Connection refused
+[2018-08-16 15:04:51.918540 -0400][Error  ][AsyncSock         ] [siab-1.colorado.edu:1094 #0.0] Unable to connect: Connection refused
+[2018-08-16 15:04:51.918800 -0400][Error  ][PostMaster        ] [siab-1.colorado.edu:1094 #0] Unable to recover: [ERROR] Connection error.
+[2018-08-16 15:04:51.918912 -0400][Error  ][XRootD            ] [siab-1.colorado.edu:1094] Impossible to send message kXR_query (code: kXR_Qconfig, arg length: 9). Trying to recover.
+[2018-08-16 15:04:51.919042 -0400][Error  ][XRootD            ] [siab-1.colorado.edu:1094] Impossible to send message kXR_open (file: /store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root, mode: 0660, flags: kXR_open_read kXR_async kXR_retstat ). Trying to recover.
+%MSG-w XrdAdaptorInternal:  file_open 16-Aug-2018 15:04:51 EDT pre-events
+Failed to open file at URL root://siab-1.colorado.edu:1094//store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root.
+%MSG
+[2018-08-16 15:04:51.920381 -0400][Error  ][XRootD            ] [siab-1.colorado.edu:1094] Unable to send the message kXR_open (file: /store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root?tried=, mode: 0660, flags: kXR_open_read kXR_async kXR_retstat ): [FATAL] Connection error
+----- Begin Fatal Exception 16-Aug-2018 15:04:51 EDT-----------------------
+An exception of category 'FallbackFileOpenError' occurred while
+   [0] Constructing the EventProcessor
+   [1] Constructing input source of type PoolSource
+   [2] Calling RootFileSequenceBase::initTheFile()
+   [3] Calling StorageFactory::open()
+   [4] Calling XrdFile::open()
+Exception Message:
+Failed to open the file 'root://siab-1.colorado.edu//store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root'
+   Additional Info:
+      [a] open() failed with system error 'No such file or directory' (error code 2)
+      [b] Input file file:/mnt/hadoop/store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root could not be opened.
+Fallback Input file root://siab-1.colorado.edu//store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root also could not be opened.
+Original exception info is above; fallback exception info is below.
+      [c] XrdCl::File::Open(name='root://siab-1.colorado.edu//store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root', flags=0x10, permissions=0660) => error '[FATAL] Connection error' (errno=0, code=108)
+      [d] Remote server already encountered a fatal error; no redirections were performed.
+----- End Fatal Exception -------------------------------------------------
+

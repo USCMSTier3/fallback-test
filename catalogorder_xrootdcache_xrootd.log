@@ -1,0 +1,20 @@
+]$ ./run_analysis.sh 
+LibCvmfs version 2.4, revision 25
+16-Aug-2018 15:15:44 EDT  Initiating request to open file root://siab-1.colorado.edu//store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root
+[2018-08-16 15:15:44.726653 -0400][Error  ][AsyncSock         ] [siab-1.colorado.edu:1094 #0.0] Unable to connect: Connection refused
+[2018-08-16 15:16:15.731461 -0400][Error  ][AsyncSock         ] [siab-1.colorado.edu:1094 #0.0] Unable to connect: Connection refused
+[2018-08-16 15:16:15.731690 -0400][Error  ][PostMaster        ] [siab-1.colorado.edu:1094 #0] Unable to recover: [ERROR] Connection error.
+[2018-08-16 15:16:15.731760 -0400][Error  ][XRootD            ] [siab-1.colorado.edu:1094] Impossible to send message kXR_prepare (flags: kXR_stage , priority: 0, paths: /store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root). Trying to recover.
+[2018-08-16 15:16:15.731879 -0400][Error  ][XRootD            ] [siab-1.colorado.edu:1094] Impossible to send message kXR_query (code: kXR_Qconfig, arg length: 9). Trying to recover.
+[2018-08-16 15:16:15.731968 -0400][Error  ][XRootD            ] [siab-1.colorado.edu:1094] Impossible to send message kXR_open (file: /store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root, mode: 0660, flags: kXR_open_read kXR_async kXR_retstat ). Trying to recover.
+%MSG-w XrdAdaptorInternal:  file_open 16-Aug-2018 15:16:15 EDT pre-events
+Failed to open file at URL root://siab-1.colorado.edu:1094//store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root.
+%MSG
+[2018-08-16 15:16:15.733147 -0400][Error  ][XRootD            ] [siab-1.colorado.edu:1094] Unable to send the message kXR_open (file: /store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root?tried=, mode: 0660, flags: kXR_open_read kXR_async kXR_retstat ): [FATAL] Connection error
+16-Aug-2018 15:16:15 EDT  Fallback request to file root://cmsxrootd.fnal.gov//store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root
+%MSG-w XrdAdaptor:  file_open 16-Aug-2018 15:16:26 EDT pre-events
+Data is served from T2_US_Nebraska instead of original site US-Regional-Nebraska
+%MSG
+16-Aug-2018 15:21:00 EDT  Successfully opened file root://cmsxrootd.fnal.gov//store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root
+%MSG-w XrdAdaptor:  (NoModuleName) 16-Aug-2018 15:21:02 EDT pre-events
+

@@ -1,0 +1,21 @@
+$ ./run_analysis.sh 
+LibCvmfs version 2.4, revision 25
+16-Aug-2018 15:28:53 EDT  Initiating request to open file file:/mnt/hadoop/store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root
+16-Aug-2018 15:28:54 EDT  Fallback request to file file:/mnt2/hadoop/store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root
+----- Begin Fatal Exception 16-Aug-2018 15:28:54 EDT-----------------------
+An exception of category 'FallbackFileOpenError' occurred while
+   [0] Constructing the EventProcessor
+   [1] Constructing input source of type PoolSource
+   [2] Calling RootFileSequenceBase::initTheFile()
+   [3] Calling StorageFactory::open()
+   [4] Calling File::sysopen()
+Exception Message:
+Failed to open the file '///mnt2/hadoop/store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root'
+   Additional Info:
+      [a] open() failed with system error 'No such file or directory' (error code 2)
+      [b] Input file file:/mnt/hadoop/store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root could not be opened.
+Fallback Input file file:/mnt2/hadoop/store/mc/HC/GenericTTbar/GEN-SIM-RECO/CMSSW_5_3_1_START53_V5-v1/0010/00CE4E7C-DAAD-E111-BA36-0025B32034EA.root also could not be opened.
+Original exception info is above; fallback exception info is below.
+      [c] open() failed with system error 'No such file or directory' (error code 2)
+----- End Fatal Exception -------------------------------------------------
+
